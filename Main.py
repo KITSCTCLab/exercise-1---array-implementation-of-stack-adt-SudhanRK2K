@@ -1,40 +1,41 @@
 class Stack:
-    def _init_(self, size):
-        self.items = [None]*size
-        self.size = size
-        self.top=-1
+    def __init__(self, size):
+       self.size = size
+       self.lst = [None]*size
+       self.top = -1 
 
     def is_empty(self):
-        if self.top==-1:
+        # Write code here
+        if self.top == -1 :
             return 1
-        else:
+        else :
             return 0
 
     def is_full(self):
-        if self.top==size-1:
+        # Write code here
+        if self.top == (self.size - 1) :
             return 1
-        else:
+        else :
             return 0
 
     def push(self, data):
-        if self.is_full() ==1:
-            pass
-        else:
+        if not self.is_full():
+            # Write code here
             self.top+=1
-            self.items[self.top]=data
-         
-            
+            self.lst[self.top]=data
 
     def pop(self):
-        if self.is_empty()==1:
-            pass
-        else:
-            self.items[self.top]=""
+        if not self.is_empty():
+            # Write code here
+            del self.lst[self.top]
             self.top-=1
+            
 
     def status(self):
-        for i in range(self.top+1):
-            print(self.items[i])
+        # Write code here
+         if not self.is_empty():
+            for i in range(0,self.top+1):
+                print(self.lst[i])
 
 # Do not change the following code
 size, queries = map(int, input().rstrip().split())
@@ -45,4 +46,4 @@ for line in range(queries):
         stack.push(values[1])
     elif values[0] == 2:
         stack.pop()
-stack.status() 
+stack.status()
